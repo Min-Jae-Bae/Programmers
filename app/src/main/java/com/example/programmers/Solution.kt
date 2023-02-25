@@ -1,10 +1,8 @@
 package com.example.programmers
 
-fun oddAndEven(num: Int): String {
+fun checkOddOrEven(number: Int): String {
     var answer = ""
-
-    if (num % 2 == 0) answer = "Even"
-    if (num % 2 != 0) answer = "Odd"
-
+    val remainNumber = (number % 2)
+    answer = if (remainNumber == 0) "Even" else "Odd"
     return answer
 }
