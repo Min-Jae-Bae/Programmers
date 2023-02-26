@@ -18,9 +18,10 @@ fun createMean(arr: IntArray): Double {
 
 fun createSumOfDigits(number: Int): Int {
     val numberString = number.toString()
-    val sumOfDigits = numberString.map { numberIndex ->
-        numberIndex.code
-    }.sum()
+    val numberList = numberString.chunked(1)
 
-    return sumOfDigits
+    val sumOfDigit = numberList.sumOf { numberItem ->
+        numberItem.toInt()
+    }
+    return sumOfDigit
 }
