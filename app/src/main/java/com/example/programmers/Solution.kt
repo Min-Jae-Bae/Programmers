@@ -6,3 +6,9 @@ fun checkOddOrEven(number: Int): String {
     answer = if (remainNumber == 0) "Even" else "Odd"
     return answer
 }
+
+fun createMean(arr: IntArray): Double {
+    var answer = 0.0
+    answer = arr.sum().toDouble() / arr.size
+    return answer
+}
