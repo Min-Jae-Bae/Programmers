@@ -2,14 +2,13 @@ package com.example.programmers
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
-import org.junit.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.CsvSource
 import org.junit.jupiter.params.provider.MethodSource
+import org.junit.jupiter.params.provider.NullSource
 
 class ProgrammersTest {
-
     @ParameterizedTest
     @CsvSource(
         "3, Odd",
@@ -25,11 +24,12 @@ class ProgrammersTest {
         assertThat(createMean(arr = arr), `is`(mean))
     }
 
+    /*TODO: Problem Error converting parameter at index 0*/
     companion object {
         @JvmStatic
         fun getMeanCase() = listOf(
-            Arguments.of(arrayListOf(1,2,3,4), 2.5),
-            Arguments.of(arrayListOf(5, 5), 5)
+            Arguments.of(arrayOf(1, 2, 3, 4), 2.5),
+            Arguments.of(arrayOf(5, 5), 5)
         )
     }
 
@@ -38,9 +38,8 @@ class ProgrammersTest {
         "123, 6",
         "987, 24"
     )
-    fun `Sum of digits test`(number: Int, sumOfDigits: Int) {
-        assertThat(createSumOfDigits(number), `is`(sumOfDigits))
-
+    fun `Sum of digits test`(number: Int, sumOfDigit: Int) {
+        assertThat(createSumOfDigits(number), `is`(sumOfDigit))
     }
 
 }
