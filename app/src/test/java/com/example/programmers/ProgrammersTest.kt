@@ -2,6 +2,7 @@ package com.example.programmers
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
+import org.junit.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.CsvSource
@@ -31,4 +32,15 @@ class ProgrammersTest {
             Arguments.of(arrayListOf(5, 5), 5)
         )
     }
+
+    @ParameterizedTest
+    @CsvSource(
+        "123, 6",
+        "987, 24"
+    )
+    fun `Sum of digits test`(number: Int, sumOfDigits: Int) {
+        assertThat(createSumOfDigits(number), `is`(sumOfDigits))
+
+    }
+
 }
