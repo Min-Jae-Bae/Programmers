@@ -15,3 +15,12 @@ fun createMean(arr: IntArray): Double {
     answer = arrTotalSum.toDouble() / arrSize
     return answer
 }
+
+fun createSumOfDigits(number: Int): Int {
+    val numberString = number.toString()
+    val sumOfDigits = numberString.map { numberIndex ->
+        numberIndex.code
+    }.sum()
+
+    return sumOfDigits
+}
