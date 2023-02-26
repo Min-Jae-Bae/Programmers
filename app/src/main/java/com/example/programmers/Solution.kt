@@ -9,6 +9,9 @@ fun checkOddOrEven(number: Int): String {
 
 fun createMean(arr: IntArray): Double {
     var answer = 0.0
-    answer = arr.sum().toDouble() / arr.size
+    val arrTotalSum = arr.sum()
+    val arrSize = arr.size
+
+    answer = arrTotalSum.toDouble() / arrSize
     return answer
 }
