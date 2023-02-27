@@ -25,3 +25,17 @@ fun createSumOfDigits(number: Int): Int {
     }
     return sumOfDigit
 }
+
+fun createSumOfDivisors(number: Int): Int {
+    var increasingNumber = 1
+    var sumOfDivisors = 0
+
+    while (number >= increasingNumber) {
+        val hasDivisors = (number % increasingNumber == 0)
+        if (hasDivisors) {
+            sumOfDivisors += number / increasingNumber
+        }
+        increasingNumber++
+    }
+    return sumOfDivisors
+}
