@@ -6,7 +6,6 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.CsvSource
 import org.junit.jupiter.params.provider.MethodSource
-import org.junit.jupiter.params.provider.NullSource
 
 class ProgrammersTest {
     @ParameterizedTest
@@ -40,6 +39,15 @@ class ProgrammersTest {
     )
     fun `Sum of digits test`(number: Int, sumOfDigit: Int) {
         assertThat(createSumOfDigits(number), `is`(sumOfDigit))
+    }
+
+    @ParameterizedTest
+    @CsvSource(
+        "12, 28",
+        "5, 6"
+    )
+    fun `Divisor sum return test`(number: Int, sumOfDivisors: Int) {
+        assertThat(createSumOfDivisors(number), `is`(sumOfDivisors))
     }
 
 }
