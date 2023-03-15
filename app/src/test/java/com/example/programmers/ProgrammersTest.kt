@@ -24,14 +24,6 @@ class ProgrammersTest {
         assertThat(createMean(arr = arr), `is`(mean))
     }
 
-    /*TODO: Problem Error converting parameter at index 0*/
-    companion object {
-        @JvmStatic
-        fun getMeanCase() = listOf(
-            Arguments.of(arrayOf(1, 2, 3, 4), 2.5),
-            Arguments.of(arrayOf(5, 5), 5)
-        )
-    }
 
     @ParameterizedTest
     @CsvSource(
@@ -51,12 +43,24 @@ class ProgrammersTest {
         assertThat(createSumOfDivisors(number), `is`(sumOfDivisors))
     }
 
-    @Test
-    fun `Spaced number test`() {
-        assertThat(createSpacedNumbers(startNumber = 2, numberCount = 5), `is`(longArrayOf(2,4,6,8,10)))
+    @ParameterizedTest
+    @MethodSource("getArrayCase")
+    fun `Spaced number return test`(startNumber: Int, numberCount: Int, arrayCase: LongArray) {
+        assertThat(createSpacedNumbers(startNumber = startNumber, numberCount = numberCount), `is`(arrayCase))
     }
-    @Test
-    fun `Spaced number test2`() {
-        assertThat(createSpacedNumbers(startNumber = -4, numberCount = 2), `is`(longArrayOf(-4,-8)))
+
+    /*TODO: Problem Error converting parameter at index 0*/
+    companion object {
+        @JvmStatic
+        fun getMeanCase() = listOf(
+            Arguments.of(arrayOf(1, 2, 3, 4), 2.5),
+            Arguments.of(arrayOf(5, 5), 5)
+        )
+
+        @JvmStatic
+        fun getArrayCase() = listOf(
+            Arguments.of(2, 5, longArrayOf(2,4,6,8,10)),
+            Arguments.of(-4, 2, longArrayOf(-4,-8))
+        )
     }
 }

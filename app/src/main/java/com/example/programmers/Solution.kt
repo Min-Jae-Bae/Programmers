@@ -29,12 +29,11 @@ fun createSumOfDivisors(number: Int): Int {
 
 fun createSpacedNumbers(startNumber: Int, numberCount: Int): LongArray {
 
-    var firstNumber = 0L
-    val numberList = LongArray(numberCount)
+    var initNumber = 0L
+    val longArray = LongArray(numberCount)
     repeat(numberCount) { index ->
-        firstNumber += startNumber.toLong()
-        numberList[index] = firstNumber
+        initNumber += startNumber
+        longArray[index] = initNumber
     }
-
-    return numberList
+    return longArray
 }
