@@ -26,3 +26,15 @@ fun createSumOfDivisors(number: Int): Int {
         number % numberItem == 0
     }.sum()
 }
+
+fun createSpacedNumbers(startNumber: Int, numberCount: Int): LongArray {
+
+    var firstNumber = 0L
+    val numberList = LongArray(numberCount)
+    repeat(numberCount) { index ->
+        firstNumber += startNumber.toLong()
+        numberList[index] = firstNumber
+    }
+
+    return numberList
+}
