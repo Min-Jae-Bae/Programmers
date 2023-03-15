@@ -63,4 +63,9 @@ class ProgrammersTest {
             Arguments.of(-4, 2, longArrayOf(-4,-8))
         )
     }
+
+    @Test
+    fun `Reversed array return test`() {
+        assertThat(createReversedArray(12345), `is`(intArrayOf(5,4,3,2,1)))
+    }
 }
