@@ -2,6 +2,7 @@ package com.example.programmers
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
+import org.junit.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.CsvSource
@@ -50,4 +51,12 @@ class ProgrammersTest {
         assertThat(createSumOfDivisors(number), `is`(sumOfDivisors))
     }
 
+    @Test
+    fun `Spaced number test`() {
+        assertThat(createSpacedNumbers(startNumber = 2, numberCount = 5), `is`(longArrayOf(2,4,6,8,10)))
+    }
+    @Test
+    fun `Spaced number test2`() {
+        assertThat(createSpacedNumbers(startNumber = -4, numberCount = 2), `is`(longArrayOf(-4,-8)))
+    }
 }
