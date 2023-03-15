@@ -37,7 +37,7 @@ fun createSpacedNumbers(
 fun createReversedArray(number: Long): IntArray = number
     .toString()
     .map {
-        it.code - 48
+        Character.digit(it, 10)
     }
     .reversed()
     .toIntArray()
