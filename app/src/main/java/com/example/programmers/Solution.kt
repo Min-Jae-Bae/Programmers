@@ -27,13 +27,17 @@ fun createSumOfDivisors(number: Int): Int {
     }.sum()
 }
 
-fun createSpacedNumbers(startNumber: Int, numberCount: Int): LongArray {
-
-    var initNumber = 0L
-    val longArray = LongArray(numberCount)
-    repeat(numberCount) { index ->
-        initNumber += startNumber
-        longArray[index] = initNumber
-    }
-    return longArray
+fun createSpacedNumbers(
+    startNumber: Int,
+    numberCount: Int,
+): LongArray = LongArray(numberCount) { index ->
+    startNumber.toLong() * (index + 1)
 }
+
+fun createReversedArray(number: Long): IntArray = number
+    .toString()
+    .map {
+        it.code - 48
+    }
+    .reversed()
+    .toIntArray()
