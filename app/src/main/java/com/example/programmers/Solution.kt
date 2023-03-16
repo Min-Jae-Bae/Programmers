@@ -1,6 +1,5 @@
 package com.example.programmers
 
-import android.icu.util.UniversalTimeScale.toLong
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -65,3 +64,11 @@ fun arrangeDescendingOrder(number: Long): Long = number
     .sortedDescending()
     .joinToString("")
     .toLong()
+
+fun findHarshadNumber(number: Int): Boolean {
+    val sumOfDigit = number
+        .toString()
+        .sumOf { Character.digit(it, 10) }
+    val hasHarshad = (number % sumOfDigit == 0)
+    return hasHarshad
+}
