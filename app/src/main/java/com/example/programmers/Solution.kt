@@ -45,6 +45,11 @@ fun createReversedArray(number: Long): IntArray = number
     .reversed()
     .toIntArray()
 
-fun determineSquareRoot(number: Long): Long =
-    if (number.toDouble() % sqrt(number.toDouble()) == 0.0) (sqrt(number.toDouble()) + 1).pow(2)
-        .toLong() else -1
+fun determineSquareRoot(number: Long): Long {
+    val doubleNumber = number.toDouble()
+    val hasSquareRoot = (doubleNumber % sqrt(doubleNumber) == 0.0)
+    val result = (sqrt(doubleNumber) + 1).pow(2)
+
+    return if (hasSquareRoot) result.toLong() else -1
+
+}
