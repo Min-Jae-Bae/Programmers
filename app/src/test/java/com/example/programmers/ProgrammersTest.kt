@@ -114,6 +114,5 @@ class ProgrammersTest {
     )
     fun `Harshad number finding test`(number: Int, hasHarshad: Boolean) {
         assertThat(findHarshadNumber(number), `is`(hasHarshad))
-
     }
 }

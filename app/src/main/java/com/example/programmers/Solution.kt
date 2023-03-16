@@ -66,9 +66,6 @@ fun arrangeDescendingOrder(number: Long): Long = number
     .toLong()
 
 fun findHarshadNumber(number: Int): Boolean {
-    val sumOfDigit = number
-        .toString()
-        .sumOf { Character.digit(it, 10) }
-    val hasHarshad = (number % sumOfDigit == 0)
-    return hasHarshad
+    return number % number.toString()
+        .fold(0) { total, next -> total + Character.digit(next, 10) } == 0
 }
