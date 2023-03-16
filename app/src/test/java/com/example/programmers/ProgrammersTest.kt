@@ -96,4 +96,8 @@ class ProgrammersTest {
         assertThat(changeStringToInt(string), `is`(int))
 
     }
+    @Test
+    fun `Arrange in descending integer order`() {
+        assertThat(arrangeDescOrder(118372), `is`(873211))
+    }
 }
