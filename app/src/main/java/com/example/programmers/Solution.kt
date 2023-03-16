@@ -53,3 +53,5 @@ fun determineSquareRoot(number: Long): Long {
     return if (hasSquareRoot) result.toLong() else -1
 
 }
+
+fun findRemainder1(number: Int): Int = (1 until number + 1).first { number % it == 1 }
