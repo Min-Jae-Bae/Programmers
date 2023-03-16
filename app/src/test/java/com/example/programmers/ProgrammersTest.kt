@@ -86,4 +86,14 @@ class ProgrammersTest {
     fun `Remainder 1 return test`(number: Int, remainder: Int) {
         assertThat(findRemainder1(number), `is`(remainder))
     }
+
+    @ParameterizedTest
+    @CsvSource(
+        "1234, 1234",
+        "-1234, -1234"
+    )
+    fun `Change string to int return test`(string: String, int: Int) {
+        assertThat(changeStringToInt(string), `is`(int))
+
+    }
 }

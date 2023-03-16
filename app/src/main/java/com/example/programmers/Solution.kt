@@ -55,3 +55,5 @@ fun determineSquareRoot(number: Long): Long {
 }
 
 fun findRemainder1(number: Int): Int = (1 until number + 1).first { number % it == 1 }
+
+fun changeStringToInt(string: String): Int = string.toInt()
