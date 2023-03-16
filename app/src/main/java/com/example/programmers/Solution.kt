@@ -1,5 +1,6 @@
 package com.example.programmers
 
+import android.icu.util.UniversalTimeScale.toLong
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -57,3 +58,10 @@ fun determineSquareRoot(number: Long): Long {
 fun findRemainder1(number: Int): Int = (1 until number + 1).first { number % it == 1 }
 
 fun changeStringToInt(string: String): Int = string.toInt()
+
+fun arrangeDescendingOrder(number: Long): Long = number
+    .toString()
+    .map { it }
+    .sortedDescending()
+    .joinToString("")
+    .toLong()

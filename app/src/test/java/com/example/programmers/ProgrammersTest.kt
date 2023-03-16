@@ -98,6 +98,6 @@ class ProgrammersTest {
     }
     @Test
     fun `Arrange in descending integer order`() {
-        assertThat(arrangeDescOrder(118372), `is`(873211))
+        assertThat(arrangeDescendingOrder(118372), `is`(873211))
     }
 }
