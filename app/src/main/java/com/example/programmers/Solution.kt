@@ -1,5 +1,8 @@
 package com.example.programmers
 
+import kotlin.math.pow
+import kotlin.math.sqrt
+
 fun checkOddOrEven(number: Int): String {
     val hasDivisors = (number % 2 == 0)
     return if (hasDivisors) "Even" else "Odd"
@@ -41,3 +44,7 @@ fun createReversedArray(number: Long): IntArray = number
     }
     .reversed()
     .toIntArray()
+
+fun determineSquareRoot(number: Long): Long =
+    if (number.toDouble() % sqrt(number.toDouble()) == 0.0) (sqrt(number.toDouble()) + 1).pow(2)
+        .toLong() else -1
