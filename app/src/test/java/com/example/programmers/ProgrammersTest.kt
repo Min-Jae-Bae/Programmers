@@ -68,4 +68,13 @@ class ProgrammersTest {
     fun `Reversed array return test`() {
         assertThat(createReversedArray(12345), `is`(intArrayOf(5,4,3,2,1)))
     }
+
+    @ParameterizedTest
+    @CsvSource(
+        "121, 144",
+        "3, -1"
+    )
+    fun `Square return test`(number: Long, result: Long) {
+        assertThat(determineSquareRoot(number), `is`(result))
+    }
 }
