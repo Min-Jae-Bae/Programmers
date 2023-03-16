@@ -46,7 +46,10 @@ class ProgrammersTest {
     @ParameterizedTest
     @MethodSource("getArrayCase")
     fun `Spaced number return test`(startNumber: Int, numberCount: Int, arrayCase: LongArray) {
-        assertThat(createSpacedNumbers(startNumber = startNumber, numberCount = numberCount), `is`(arrayCase))
+        assertThat(
+            createSpacedNumbers(startNumber = startNumber, numberCount = numberCount),
+            `is`(arrayCase)
+        )
     }
 
     /*TODO: Problem Error converting parameter at index 0*/
@@ -59,14 +62,14 @@ class ProgrammersTest {
 
         @JvmStatic
         fun getArrayCase() = listOf(
-            Arguments.of(2, 5, longArrayOf(2,4,6,8,10)),
-            Arguments.of(-4, 2, longArrayOf(-4,-8))
+            Arguments.of(2, 5, longArrayOf(2, 4, 6, 8, 10)),
+            Arguments.of(-4, 2, longArrayOf(-4, -8))
         )
     }
 
     @Test
     fun `Reversed array return test`() {
-        assertThat(createReversedArray(12345), `is`(intArrayOf(5,4,3,2,1)))
+        assertThat(createReversedArray(12345), `is`(intArrayOf(5, 4, 3, 2, 1)))
     }
 
     @ParameterizedTest
@@ -96,8 +99,21 @@ class ProgrammersTest {
         assertThat(changeStringToInt(string), `is`(int))
 
     }
+
     @Test
     fun `Arrange in descending integer order`() {
         assertThat(arrangeDescendingOrder(118372), `is`(873211))
+    }
+
+    @ParameterizedTest
+    @CsvSource(
+        "10, true",
+        "12, true",
+        "11, false",
+        "13, false"
+    )
+    fun `Harshad number finding test`(number: Int, hasHarshad: Boolean) {
+        assertThat(findHarshadNumber(number), `is`(hasHarshad))
+
     }
 }
