@@ -77,4 +77,13 @@ class ProgrammersTest {
     fun `Square return test`(number: Long, result: Long) {
         assertThat(determineSquareRoot(number), `is`(result))
     }
+
+    @ParameterizedTest
+    @CsvSource(
+        "10, 3",
+        "12, 11"
+    )
+    fun `Remainder 1 return test`(number: Int, remainder: Int) {
+        assertThat(findRemainder1(number), `is`(remainder))
+    }
 }
