@@ -115,4 +115,18 @@ class ProgrammersTest {
     fun `Harshad number finding test`(number: Int, hasHarshad: Boolean) {
         assertThat(findHarshadNumber(number), `is`(hasHarshad))
     }
+
+    @ParameterizedTest
+    @CsvSource(
+        "3, 5, 12",
+        "3, 3, 3",
+        "5, 3, 12"
+    )
+    fun `Sum between two integers test`(firstNumber: Int, lastNumber: Int, result: Long) {
+        assertThat(
+            createSumBetweenTwoIntegers(firstNumber = firstNumber, lastNumber = lastNumber),
+            `is`(result)
+        )
+    }
+
 }
