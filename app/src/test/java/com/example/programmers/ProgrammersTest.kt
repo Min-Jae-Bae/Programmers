@@ -129,4 +129,14 @@ class ProgrammersTest {
         )
     }
 
+    @ParameterizedTest
+    @CsvSource(
+        "6, 8",
+        "16, 4",
+        "626331, -1"
+    )
+    fun `Collatz guess test`(number: Int, collatzResult: Int) {
+        assertThat(createCollatzResult(number), `is`(collatzResult))
+    }
+
 }
