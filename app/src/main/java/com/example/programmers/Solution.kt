@@ -69,3 +69,11 @@ fun findHarshadNumber(number: Int): Boolean {
     return number % number.toString()
         .fold(0) { total, next -> total + Character.digit(next, 10) } == 0
 }
+
+fun createSumBetweenTwoIntegers(firstNumber: Int, lastNumber: Int): Long {
+    return if (lastNumber > firstNumber) {
+        (firstNumber..lastNumber).fold(0) { total, next -> total + next }
+    } else {
+        (firstNumber downTo lastNumber).fold(0) { total, next -> total + next }
+    }
+}
