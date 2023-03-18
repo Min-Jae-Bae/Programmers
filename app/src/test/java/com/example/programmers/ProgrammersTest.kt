@@ -45,7 +45,11 @@ class ProgrammersTest {
 
     @ParameterizedTest
     @MethodSource("getArrayCase")
-    fun `Spaced number return test`(startNumber: Int, numberCount: Int, arrayCase: LongArray) {
+    fun `Spaced number return test`(
+        startNumber: Int,
+        numberCount: Int,
+        arrayCase: LongArray,
+    ) {
         assertThat(
             createSpacedNumbers(startNumber = startNumber, numberCount = numberCount),
             `is`(arrayCase)
@@ -108,7 +112,11 @@ class ProgrammersTest {
         "3, 3, 3",
         "5, 3, 12"
     )
-    fun `Sum between two integers test`(firstNumber: Int, lastNumber: Int, result: Long) {
+    fun `Sum between two integers test`(
+        firstNumber: Int,
+        lastNumber: Int,
+        result: Long,
+    ) {
         assertThat(
             createSumBetweenTwoIntegers(firstNumber = firstNumber, lastNumber = lastNumber),
             `is`(result)
@@ -132,7 +140,11 @@ class ProgrammersTest {
 
     @ParameterizedTest
     @MethodSource("getDivisibleArrayCase")
-    fun `Divisible array of numbers test`(array: IntArray, divisor: Int, divisibleArray: IntArray) {
+    fun `Divisible array of numbers test`(
+        array: IntArray,
+        divisor: Int,
+        divisibleArray: IntArray,
+    ) {
         assertThat(createDivisibleArray(array = array, divisor = divisor), `is`(divisibleArray))
 
     }

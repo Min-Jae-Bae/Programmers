@@ -5,7 +5,8 @@ import kotlin.math.sqrt
 
 fun checkOddOrEven(number: Int): String {
     val hasDivisors = (number % 2 == 0)
-    return if (hasDivisors) "Even" else "Odd"
+    if (hasDivisors) "Even"
+    return "Odd"
 }
 
 fun createMean(arr: IntArray): Double {
@@ -30,52 +31,52 @@ fun createSumOfDivisors(number: Int): Int {
     }.sum()
 }
 
-fun createSpacedNumbers(
-    startNumber: Int,
-    numberCount: Int,
-): LongArray = LongArray(numberCount) { index ->
-    startNumber.toLong() * (index + 1)
-}
-
-fun createReversedArray(number: Long): IntArray = number
-    .toString()
-    .map {
-        Character.digit(it, 10)
+fun createSpacedNumbers(startNumber: Int, numberCount: Int): LongArray =
+    LongArray(numberCount) { index ->
+        startNumber.toLong() * (index + 1)
     }
-    .reversed()
-    .toIntArray()
+
+fun createReversedArray(number: Long): IntArray =
+    number
+        .toString()
+        .map {
+            Character.digit(it, 10)
+        }
+        .reversed()
+        .toIntArray()
 
 fun determineSquareRoot(number: Long): Long {
     val doubleNumber = number.toDouble()
     val hasSquareRoot = (doubleNumber % sqrt(doubleNumber) == 0.0)
     val result = (sqrt(doubleNumber) + 1).pow(2)
 
-    return if (hasSquareRoot) result.toLong() else -1
-
+    if (hasSquareRoot) result.toLong()
+    return -1
 }
 
 fun findRemainder1(number: Int): Int = (1 until number + 1).first { number % it == 1 }
 
 fun changeStringToInt(string: String): Int = string.toInt()
 
-fun arrangeDescendingOrder(number: Long): Long = number
-    .toString()
-    .map { it }
-    .sortedDescending()
-    .joinToString("")
-    .toLong()
+fun arrangeDescendingOrder(number: Long): Long =
+    number
+        .toString()
+        .map { it }
+        .sortedDescending()
+        .joinToString("")
+        .toLong()
 
-fun findHarshadNumber(number: Int): Boolean {
-    return number % number.toString()
+fun findHarshadNumber(number: Int): Boolean =
+    number % number
+        .toString()
         .fold(0) { total, next -> total + Character.digit(next, 10) } == 0
-}
+
 
 fun createSumBetweenTwoIntegers(firstNumber: Int, lastNumber: Int): Long {
-    return if (lastNumber > firstNumber) {
+    if (lastNumber > firstNumber) {
         (firstNumber..lastNumber).fold(0) { total, next -> total + next }
-    } else {
-        (firstNumber downTo lastNumber).fold(0) { total, next -> total + next }
     }
+    return (firstNumber downTo lastNumber).fold(0) { total, next -> total + next }
 }
 
 
@@ -104,5 +105,7 @@ fun createDivisibleArray(array: IntArray, divisor: Int): IntArray {
         .sorted()
         .toIntArray()
 
-    return if (divisibleArray.isEmpty()) intArrayOf(-1) else divisibleArray
+    if (divisibleArray.isEmpty()) intArrayOf(-1)
+
+    return divisibleArray
 }
