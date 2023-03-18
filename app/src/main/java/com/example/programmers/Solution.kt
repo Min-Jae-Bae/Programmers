@@ -93,5 +93,6 @@ tailrec fun createCollatzResult(number: Long, collatzCount: Int): Int {
             )
         }
     }
-
 }
+
+fun findKim(seoul: Array<String>): String = "김서방은 ${seoul.indexOf("Kim")}에 있다"
