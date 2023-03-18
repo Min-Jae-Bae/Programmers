@@ -78,25 +78,20 @@ fun createSumBetweenTwoIntegers(firstNumber: Int, lastNumber: Int): Long {
     }
 }
 
-fun createCollatzResult(number: Int): Int {
-    var collatzCount = 0
-    var collatzResult = number.toLong()
-    do {
-        val hasEven = collatzResult % 2L == 0L
-        val hasOdd = collatzResult % 2L != 0L
 
-        if (hasEven) {
-            collatzResult /= 2
-            collatzCount++
-            continue
-        }
-        if (hasOdd) {
-            collatzResult = collatzResult * 3 + 1
-            collatzCount++
-            continue
-        }
+fun getCollatzResult(number: Int): Int =
+    createCollatzResult(number = number.toLong(), collatzCount = 0)
 
-    } while (collatzResult != 1L)
-    if (collatzCount >= 500) return -1
-    return collatzCount
+tailrec fun createCollatzResult(number: Long, collatzCount: Int): Int {
+    return when {
+        (collatzCount > 500) -> -1
+        (number == 1L) -> collatzCount
+        else -> {
+            createCollatzResult(
+                if (number % 2 == 0L) number / 2 else (number * 3) + 1,
+                collatzCount + 1
+            )
+        }
+    }
+
 }
