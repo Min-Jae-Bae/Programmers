@@ -139,4 +139,9 @@ class ProgrammersTest {
         assertThat(getCollatzResult(number = number), `is`(collatzResult))
     }
 
+    @Test
+    fun `Find kim location test`() {
+        assertThat(findKim(arrayOf("Jane", "Kim")), `is`("김서방은 1에 있다"))
+    }
+
 }
