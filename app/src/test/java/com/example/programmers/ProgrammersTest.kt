@@ -52,20 +52,6 @@ class ProgrammersTest {
         )
     }
 
-    /*TODO: Problem Error converting parameter at index 0*/
-    companion object {
-        @JvmStatic
-        fun getMeanCase() = listOf(
-            Arguments.of(arrayOf(1, 2, 3, 4), 2.5),
-            Arguments.of(arrayOf(5, 5), 5)
-        )
-
-        @JvmStatic
-        fun getArrayCase() = listOf(
-            Arguments.of(2, 5, longArrayOf(2, 4, 6, 8, 10)),
-            Arguments.of(-4, 2, longArrayOf(-4, -8))
-        )
-    }
 
     @Test
     fun `Reversed array return test`() {
@@ -144,4 +130,34 @@ class ProgrammersTest {
         assertThat(findKim(arrayOf("Jane", "Kim")), `is`("김서방은 1에 있다"))
     }
 
+    @ParameterizedTest
+    @MethodSource("getDivisibleArrayCase")
+    fun `Divisible array of numbers test`(array: IntArray, divisor: Int, divisibleArray: IntArray) {
+        assertThat(createDivisibleArray(array = array, divisor = divisor), `is`(divisibleArray))
+
+    }
+
+
+    /*TODO: Problem Error converting parameter at index 0*/
+    companion object {
+        @JvmStatic
+        fun getMeanCase() = listOf(
+            Arguments.of(arrayOf(1, 2, 3, 4), 2.5),
+            Arguments.of(arrayOf(5, 5), 5)
+        )
+
+        @JvmStatic
+        fun getArrayCase() = listOf(
+            Arguments.of(2, 5, longArrayOf(2, 4, 6, 8, 10)),
+            Arguments.of(-4, 2, longArrayOf(-4, -8))
+        )
+
+        @JvmStatic
+        fun getDivisibleArrayCase() = listOf(
+            Arguments.of(intArrayOf(5, 9, 7, 10), 5, intArrayOf(5, 10)),
+            Arguments.of(intArrayOf(2, 36, 1, 3), 1, intArrayOf(1, 2, 3, 36)),
+            Arguments.of(intArrayOf(3, 2, 6), 10, intArrayOf(-1))
+        )
+    }
 }
+
