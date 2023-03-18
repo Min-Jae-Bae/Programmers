@@ -96,3 +96,13 @@ tailrec fun createCollatzResult(number: Long, collatzCount: Int): Int {
 }
 
 fun findKim(seoul: Array<String>): String = "김서방은 ${seoul.indexOf("Kim")}에 있다"
+
+fun createDivisibleArray(array: IntArray, divisor: Int): IntArray {
+    val divisibleArray = array.filter { item ->
+        item % divisor == 0
+    }
+        .sorted()
+        .toIntArray()
+
+    return if (divisibleArray.isEmpty()) intArrayOf(-1) else divisibleArray
+}
