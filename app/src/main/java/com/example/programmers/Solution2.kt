@@ -6,6 +6,6 @@ fun hidePhoneNumber(phoneNumber: String): String = phoneNumber
     .joinToString(separator = "", postfix = phoneNumber.takeLast(4))
 
 fun plusYinYang(absoluteValues: IntArray, signs: BooleanArray): Int =
-    signs.mapIndexed { index, hasPlusSign ->
-        if (hasPlusSign) absoluteValues[index] else -absoluteValues[index]
-    }.sum()
+    absoluteValues.foldIndexed(0) { index, total, item ->
+        total + if (signs[index]) item else -item
+    }
