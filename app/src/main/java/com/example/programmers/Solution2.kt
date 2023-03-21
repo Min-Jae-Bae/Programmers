@@ -6,6 +6,13 @@ fun hidePhoneNumber(phoneNumber: String): String = phoneNumber
     .joinToString(separator = "", postfix = phoneNumber.takeLast(4))
 
 fun plusYinYang(absoluteValues: IntArray, signs: BooleanArray): Int =
-    absoluteValues.foldIndexed(0) { index, total, item ->
-        total + if (signs[index]) item else -item
+    absoluteValues.foldIndexed(0) { index, total, number ->
+        total + if (signs[index]) number else -number
     }
+
+fun eliminateSmallestNumber(intArray: IntArray): IntArray {
+    val resultArray = intArray.filter { item ->
+        item > intArray.minOf { it }
+    }.toIntArray()
+    return if (resultArray.isEmpty()) intArrayOf(-1) else resultArray
+}

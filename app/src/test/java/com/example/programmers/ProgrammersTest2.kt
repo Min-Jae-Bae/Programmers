@@ -34,7 +34,7 @@ class ProgrammersTest2 {
     @ParameterizedTest
     @MethodSource("getEliminationCase")
     fun `Smallest number elimination test`(intArray: IntArray, resultArray: IntArray) {
-        assertThat(removeSmallestNumber(intArray = intArray), `is`(resultArray))
+        assertThat(eliminateSmallestNumber(intArray = intArray), `is`(resultArray))
     }
 
     companion object {
