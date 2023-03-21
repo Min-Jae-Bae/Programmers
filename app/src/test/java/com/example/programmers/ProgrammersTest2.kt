@@ -37,6 +37,12 @@ class ProgrammersTest2 {
         assertThat(eliminateSmallestNumber(intArray = intArray), `is`(resultArray))
     }
 
+    @ParameterizedTest
+    @MethodSource("getMissingAdditionCase")
+    fun `Missing number addition test`(numberArray: IntArray, additionResult: Int) {
+        assertThat(addMissingNumber(numberArray = numberArray), `is`(additionResult))
+    }
+
     companion object {
         @JvmStatic
         fun getYinYangCase() = listOf(
@@ -48,6 +54,12 @@ class ProgrammersTest2 {
         fun getEliminationCase() = listOf(
             Arguments.of(intArrayOf(4, 3, 2, 1), intArrayOf(4, 3, 2)),
             Arguments.of(intArrayOf(10), intArrayOf(-1))
+        )
+
+        @JvmStatic
+        fun getMissingAdditionCase() = listOf(
+            Arguments.of(intArrayOf(1, 2, 3, 4, 6, 7, 8, 0), 14),
+            Arguments.of(intArrayOf(5, 8, 4, 0, 6, 7, 9), 6)
         )
     }
 }
