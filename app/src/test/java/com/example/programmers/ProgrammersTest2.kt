@@ -43,6 +43,15 @@ class ProgrammersTest2 {
         assertThat(addMissingNumber(numberArray = numberArray), `is`(additionResult))
     }
 
+    @ParameterizedTest
+    @CsvSource(
+        "abcde, c",
+        "qwer, we"
+    )
+    fun `Middle letter fetch test`(string: String, middleString: String) {
+        assertThat(getMiddleLetter(string = string), `is`(middleString))
+    }
+
     companion object {
         @JvmStatic
         fun getYinYangCase() = listOf(
