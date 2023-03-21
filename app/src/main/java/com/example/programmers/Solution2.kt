@@ -16,3 +16,9 @@ fun eliminateSmallestNumber(intArray: IntArray): IntArray {
     }.toIntArray()
     return if (resultArray.isEmpty()) intArrayOf(-1) else resultArray
 }
+
+fun addMissingNumber(numberArray: IntArray): Int =
+    (0..9).filterNot { item ->
+        item in numberArray
+    }.sum()
+
