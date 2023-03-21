@@ -31,11 +31,23 @@ class ProgrammersTest2 {
 
     }
 
+    @ParameterizedTest
+    @MethodSource("getEliminationCase")
+    fun `Smallest number elimination test`(intArray: IntArray, resultArray: IntArray) {
+        assertThat(removeSmallestNumber(intArray = intArray), `is`(resultArray))
+    }
+
     companion object {
         @JvmStatic
         fun getYinYangCase() = listOf(
             Arguments.of(intArrayOf(4, 7, 12), booleanArrayOf(true, false, true), 9),
             Arguments.of(intArrayOf(1, 2, 3), booleanArrayOf(false, false, true), 0)
+        )
+
+        @JvmStatic
+        fun getEliminationCase() = listOf(
+            Arguments.of(intArrayOf(4, 3, 2, 1), intArrayOf(4, 3, 2)),
+            Arguments.of(intArrayOf(10), intArrayOf(-1))
         )
     }
 }
