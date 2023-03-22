@@ -27,3 +27,10 @@ fun getMiddleLetter(string: String): String =
         substring((length / 2 - 1 + (length % 2))..(length / 2))
     }
 
+fun createWatermelonPattern(number: Int): String {
+    var string = ""
+    repeat(number) { item ->
+        string += if (item % 2 == 0) "수" else "박"
+    }
+    return string
+}
