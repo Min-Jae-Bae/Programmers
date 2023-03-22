@@ -52,6 +52,15 @@ class ProgrammersTest2 {
         assertThat(getMiddleLetter(string = string), `is`(middleString))
     }
 
+    @ParameterizedTest
+    @CsvSource(
+        "3, 수박수",
+        "4, 수박수박"
+    )
+    fun `Watermelon pattern test`(number: Int, pattern: String) {
+        assertThat(createWatermelonPattern(number = number), `is`(pattern))
+    }
+
     companion object {
         @JvmStatic
         fun getYinYangCase() = listOf(
