@@ -61,6 +61,21 @@ class ProgrammersTest2 {
         assertThat(createWatermelonPattern(number = number), `is`(pattern))
     }
 
+    @ParameterizedTest
+    @MethodSource("getDotProductCase")
+    fun `Dot product test`(
+        firstIntArray: IntArray,
+        secondIntArray: IntArray,
+        dotProductResult: Int,
+    ) {
+        assertThat(
+            createDotProduct(
+                firstIntArray = firstIntArray,
+                secondIntArray = secondIntArray
+            ), `is`(dotProductResult)
+        )
+    }
+
     companion object {
         @JvmStatic
         fun getYinYangCase() = listOf(
@@ -78,6 +93,12 @@ class ProgrammersTest2 {
         fun getMissingAdditionCase() = listOf(
             Arguments.of(intArrayOf(1, 2, 3, 4, 6, 7, 8, 0), 14),
             Arguments.of(intArrayOf(5, 8, 4, 0, 6, 7, 9), 6)
+        )
+
+        @JvmStatic
+        fun getDotProductCase() = listOf(
+            Arguments.of(intArrayOf(1, 2, 3, 4), intArrayOf(-3, -1, 0, 2), 3),
+            Arguments.of(intArrayOf(-1, 0, 1), intArrayOf(1, 0, -1), -2)
         )
     }
 }
