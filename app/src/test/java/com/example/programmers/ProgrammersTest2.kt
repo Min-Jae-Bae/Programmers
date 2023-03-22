@@ -2,6 +2,7 @@ package com.example.programmers
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
+import org.junit.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.CsvSource
@@ -74,6 +75,11 @@ class ProgrammersTest2 {
                 secondIntArray = secondIntArray
             ), `is`(dotProductResult)
         )
+    }
+
+    @Test
+    fun `Sort a string in descending order`() {
+        assertThat(sortStringDescending("Zbcdefg"), `is`("gfedcbZ"))
     }
 
     companion object {
