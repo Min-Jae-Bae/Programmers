@@ -31,6 +31,5 @@ fun createWatermelonPattern(number: Int): String =
     String(CharArray(number) { index -> if (index % 2 == 0) '수' else '박' })
 
 fun createDotProduct(firstIntArray: IntArray, secondIntArray: IntArray): Int =
-    firstIntArray.foldIndexed(0) { index: Int, total: Int, item: Int ->
-        total + secondIntArray[index] * item
-    }
+    firstIntArray.zip(secondIntArray)
+        .sumOf { item -> item.first * item.second }
