@@ -32,4 +32,9 @@ fun createWatermelonPattern(number: Int): String =
 
 fun createDotProduct(firstIntArray: IntArray, secondIntArray: IntArray): Int =
     firstIntArray.zip(secondIntArray)
-        .sumOf { item -> item.first * item.second }
+        .sumOf { pair -> pair.first * pair.second }
+
+fun sortStringDescending(string: String): String =
+    string.toCharArray()
+        .sortedArrayDescending()
+        .joinToString("")
