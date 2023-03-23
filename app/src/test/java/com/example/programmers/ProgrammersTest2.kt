@@ -82,6 +82,26 @@ class ProgrammersTest2 {
         assertThat(sortStringDescending("Zbcdefg"), `is`("gfedcbZ"))
     }
 
+
+    @ParameterizedTest
+    @CsvSource(
+        "3, 20, 4, 10"
+    )
+    fun `Calculate shortfall test`(
+        price: Int,
+        money: Int,
+        count: Int,
+        difference: Long,
+    ) {
+        assertThat(
+            calculateShortfall(
+                price = price,
+                money = money,
+                count = count
+            ), `is`(difference)
+        )
+    }
+
     companion object {
         @JvmStatic
         fun getYinYangCase() = listOf(
