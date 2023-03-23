@@ -24,7 +24,7 @@ fun addMissingNumber(numberArray: IntArray): Int =
 
 fun getMiddleLetter(string: String): String =
     with(string) {
-        substring((length / 2 - 1 + (length % 2))..(length / 2))
+        substring(range = (length / 2 - 1 + (length % 2))..(length / 2))
     }
 
 fun createWatermelonPattern(number: Int): String =
@@ -37,4 +37,11 @@ fun createDotProduct(firstIntArray: IntArray, secondIntArray: IntArray): Int =
 fun sortStringDescending(string: String): String =
     string.toCharArray()
         .sortedArrayDescending()
-        .joinToString("")
+        .joinToString(separator = "")
+
+fun calculateShortfall(price: Int, money: Int, count: Int): Long {
+    val difference = ((1..count).fold(0L) { total, item ->
+        total + (item * price)
+    }.toLong() - money.toLong())
+    return if (difference < 1L) 0L else difference
+}
