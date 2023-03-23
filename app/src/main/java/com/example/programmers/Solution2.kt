@@ -39,9 +39,7 @@ fun sortStringDescending(string: String): String =
         .sortedArrayDescending()
         .joinToString(separator = "")
 
-fun calculateShortfall(price: Int, money: Int, count: Int): Long {
-    val difference = ((1..count).fold(0L) { total, item ->
-        total + (item * price)
-    }.toLong() - money.toLong())
-    return if (difference < 1L) 0L else difference
-}
+fun calculateShortfall(price: Int, money: Int, count: Int): Long =
+    ((1..count).fold(0L) { total, item ->
+        total + (item * price) }.toLong() - money.toLong()).let { difference ->
+        if (difference < 1L) 0L else difference }
