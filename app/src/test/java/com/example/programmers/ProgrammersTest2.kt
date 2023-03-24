@@ -119,6 +119,15 @@ class ProgrammersTest2 {
 
     }
 
+    @ParameterizedTest
+    @CsvSource(
+        "a234, false",
+        "1234, true"
+    )
+    fun `String handling test`(string: String, hasCondition: Boolean) {
+        assertThat(handleString(string = string), `is`(hasCondition))
+    }
+
     companion object {
         @JvmStatic
         fun getYinYangCase() = listOf(
