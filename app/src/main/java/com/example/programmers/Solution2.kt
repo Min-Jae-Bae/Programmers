@@ -1,5 +1,7 @@
 package com.example.programmers
 
+import kotlin.math.sqrt
+
 fun hidePhoneNumber(phoneNumber: String): String = phoneNumber
     .take(phoneNumber.length - 4)
     .map { "*" }
@@ -41,5 +43,19 @@ fun sortStringDescending(string: String): String =
 
 fun calculateShortfall(price: Int, money: Int, count: Int): Long =
     ((1..count).fold(0L) { total, item ->
-        total + (item * price) }.toLong() - money.toLong()).let { difference ->
-        if (difference < 1L) 0L else difference }
+        total + (item * price)
+    }.toLong() - money.toLong()).let { difference ->
+        if (difference < 1L) 0L else difference
+    }
+
+fun addNumberOfDivisors(firstNumber: Int, lastNumber: Int): Int {
+  return 0
+}
+
+fun handleString(string: String): Boolean =
+    with(string) {
+        none {
+            length != 4 && length != 6 || it in 'A'..'z'
+        }
+    }
+
