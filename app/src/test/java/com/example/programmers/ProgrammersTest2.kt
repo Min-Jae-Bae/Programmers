@@ -102,6 +102,23 @@ class ProgrammersTest2 {
         )
     }
 
+    @ParameterizedTest
+    @CsvSource(
+        "13, 17, 43",
+        "24, 27, 52"
+    )
+    fun `Number of factors and addition test`(
+        firstNumber: Int,
+        lastNumber: Int,
+        additionResult: Int,
+    ) {
+        assertThat(
+            addNumberOfDivisors(firstNumber = firstNumber, lastNumber = lastNumber),
+            `is`(additionResult)
+        )
+
+    }
+
     companion object {
         @JvmStatic
         fun getYinYangCase() = listOf(
