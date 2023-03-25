@@ -139,6 +139,23 @@ class ProgrammersTest2 {
 
     }
 
+    @ParameterizedTest
+    @MethodSource("getMatrixCase")
+    fun `Matrix addition Test`(
+        firstIntArray: Array<IntArray>,
+        secondIntArray: Array<IntArray>,
+        matrixAddition: Array<IntArray>,
+    ) {
+        assertThat(
+            addMatrix(firstIntArray = firstIntArray, secondIntArray = secondIntArray),
+            `is`(matrixAddition)
+        )
+    }
+
+    @Test
+    fun `Rectangular star test`() {
+        assertThat(createRectangularStar(args = arrayOf("5 3")), `is`("*****\n*****\n*****"))
+    }
 
 
     companion object {
@@ -164,6 +181,20 @@ class ProgrammersTest2 {
         fun getDotProductCase() = listOf(
             Arguments.of(intArrayOf(1, 2, 3, 4), intArrayOf(-3, -1, 0, 2), 3),
             Arguments.of(intArrayOf(-1, 0, 1), intArrayOf(1, 0, -1), -2)
+        )
+
+        @JvmStatic
+        fun getMatrixCase() = listOf(
+            Arguments.of(
+                arrayOf(intArrayOf(1, 2), intArrayOf(2, 3)),
+                arrayOf(intArrayOf(3, 4), intArrayOf(5, 6)),
+                arrayOf(intArrayOf(4, 6), intArrayOf(7, 9))
+            ),
+            Arguments.of(
+                arrayOf(intArrayOf(1, 2)),
+                arrayOf(intArrayOf(3, 4)),
+                arrayOf(intArrayOf(4, 6))
+            )
         )
     }
 }
