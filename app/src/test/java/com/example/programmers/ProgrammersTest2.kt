@@ -128,6 +128,19 @@ class ProgrammersTest2 {
         assertThat(handleString(string = string), `is`(hasCondition))
     }
 
+    @ParameterizedTest
+    @CsvSource(
+        "1 2 3 4, 1 4",
+        "-1 -2 -3 -4, -4 -1",
+        "-1 -1, -1 -1"
+    )
+    fun `Find max, min values`(string: String, valuesResult: String) {
+        assertThat(findMaxMinValues(string = string), `is`(valuesResult))
+
+    }
+
+
+
     companion object {
         @JvmStatic
         fun getYinYangCase() = listOf(
