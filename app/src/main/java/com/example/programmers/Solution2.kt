@@ -57,16 +57,12 @@ fun handleString(string: String): Boolean =
         }
     }
 
-fun findMaxMinValues(string: String): String {
-    val sortedValues = string
+fun findMaxMinValues(string: String): String =
+    string
         .split(" ")
         .map { it.toInt() }
-        .sorted()
+        .let { "${it.min()} ${it.max()}" }
 
-    return with(sortedValues) {
-        first().toString() + " " + last().toString()
-    }
-}
 
 
 
