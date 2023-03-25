@@ -64,5 +64,23 @@ fun findMaxMinValues(string: String): String =
         .let { "${it.min()} ${it.max()}" }
 
 
+fun addMatrix(
+    firstIntArray: Array<IntArray>,
+    secondIntArray: Array<IntArray>,
+): Array<IntArray> {
+
+    return emptyArray()
+}
+
+fun createRectangularStar(args: Array<String>) {
+    val (a, b) = readLine()!!.split(' ').map(String::toInt)
+    repeat(b) {
+        repeat(a) {
+            print("*")
+        }
+        println()
+    }
+}
+
 
 
