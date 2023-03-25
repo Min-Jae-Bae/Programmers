@@ -1,7 +1,5 @@
 package com.example.programmers
 
-import kotlin.math.sqrt
-
 fun hidePhoneNumber(phoneNumber: String): String = phoneNumber
     .take(phoneNumber.length - 4)
     .map { "*" }
@@ -49,7 +47,7 @@ fun calculateShortfall(price: Int, money: Int, count: Int): Long =
     }
 
 fun addNumberOfDivisors(firstNumber: Int, lastNumber: Int): Int {
-  return 0
+    return 0
 }
 
 fun handleString(string: String): Boolean =
@@ -58,4 +56,17 @@ fun handleString(string: String): Boolean =
             length != 4 && length != 6 || it in 'A'..'z'
         }
     }
+
+fun findMaxMinValues(string: String): String {
+    val sortedValues = string
+        .split(" ")
+        .map { it.toInt() }
+        .sorted()
+
+    return with(sortedValues) {
+        first().toString() + " " + last().toString()
+    }
+}
+
+
 
