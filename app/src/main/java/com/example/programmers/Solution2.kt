@@ -49,9 +49,16 @@ fun calculateShortfall(price: Int, money: Int, count: Int): Long =
         if (difference < 1L) 0L else difference
     }
 
-fun addNumberOfDivisors(firstNumber: Int, lastNumber: Int): Int {
-    return 0
-}
+fun addNumberOfDivisors(firstNumber: Int, lastNumber: Int): Int =
+    (firstNumber..lastNumber).sumOf { number ->
+        var count = 0
+        repeat(number) { item ->
+            if (number % (item + 1) == 0) {
+                count++
+            }
+        }.let { if (count % 2 == 0) number else -number }
+    }
+
 
 fun handleString(string: String): Boolean =
     with(string) {
@@ -94,6 +101,7 @@ fun createJadenCase(string: String): String =
                 if (item.isLowerCase()) item.titlecase(Locale.getDefault()) else item.toString()
             }
         }
+
 
 
 
