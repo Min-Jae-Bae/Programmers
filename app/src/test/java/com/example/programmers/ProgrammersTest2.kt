@@ -157,6 +157,15 @@ class ProgrammersTest2 {
         assertThat(createRectangularStar(args = arrayOf("5 3")), `is`("*****\n*****\n*****"))
     }
 
+    @ParameterizedTest
+    @CsvSource(
+        "3people unFollowed me, 3people Unfollowed Me",
+        "for the last week, For The Last Week"
+    )
+    fun `JadenCase string test`(string: String, jadenCase: String) {
+        assertThat(createJadenCase(string = string), `is`(jadenCase))
+
+    }
 
     companion object {
         @JvmStatic
