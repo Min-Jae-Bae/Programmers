@@ -1,5 +1,8 @@
 package com.example.programmers
 
+import java.io.File.separator
+import java.util.*
+
 fun hidePhoneNumber(phoneNumber: String): String = phoneNumber
     .take(phoneNumber.length - 4)
     .map { "*" }
@@ -81,6 +84,16 @@ fun createRectangularStar(args: Array<String>) {
         println()
     }
 }
+
+fun createJadenCase(string: String): String =
+    string
+        .lowercase()
+        .split(" ")
+        .joinToString(separator = " ") {
+            it.replaceFirstChar { item ->
+                if (item.isLowerCase()) item.titlecase(Locale.getDefault()) else item.toString()
+            }
+        }
 
 
 
