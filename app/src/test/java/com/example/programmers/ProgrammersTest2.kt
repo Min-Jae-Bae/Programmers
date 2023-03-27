@@ -167,6 +167,12 @@ class ProgrammersTest2 {
 
     }
 
+    @ParameterizedTest
+    @MethodSource("getBinaryConversionCase")
+    fun `Repeat binary conversion test`(string: String, result: IntArray) {
+        assertThat(repeatBinaryConversion(string = string), `is`(result))
+    }
+
     companion object {
         @JvmStatic
         fun getYinYangCase() = listOf(
@@ -204,6 +210,13 @@ class ProgrammersTest2 {
                 arrayOf(intArrayOf(3, 4)),
                 arrayOf(intArrayOf(4, 6))
             )
+        )
+
+        @JvmStatic
+        fun getBinaryConversionCase() = listOf(
+            Arguments.of("110010101001", intArrayOf(3, 8)),
+            Arguments.of("01110", intArrayOf(3, 3)),
+            Arguments.of("1111111", intArrayOf(4, 1))
         )
     }
 }
