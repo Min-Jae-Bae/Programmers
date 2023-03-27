@@ -173,6 +173,16 @@ class ProgrammersTest2 {
         assertThat(repeatBinaryConversion(string = string), `is`(result))
     }
 
+    @ParameterizedTest
+    @MethodSource("getGreatestLeastCase")
+    fun `Find greatest common factor and least common multiple`(
+        number1: Int,
+        number2: Int,
+        result: IntArray,
+    ) {
+        assertThat(findGreatestLeastCommon(number1 = number1, number2 = number2), `is`(result))
+    }
+
     companion object {
         @JvmStatic
         fun getYinYangCase() = listOf(
@@ -217,6 +227,12 @@ class ProgrammersTest2 {
             Arguments.of("110010101001", intArrayOf(3, 8)),
             Arguments.of("01110", intArrayOf(3, 3)),
             Arguments.of("1111111", intArrayOf(4, 1))
+        )
+
+        @JvmStatic
+        fun getGreatestLeastCase() = listOf(
+            Arguments.of(3, 12, intArrayOf(3, 12)),
+            Arguments.of(2, 5, intArrayOf(1, 10))
         )
     }
 }
