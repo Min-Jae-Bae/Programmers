@@ -94,8 +94,17 @@ fun createJadenCase(string: String): String =
             }
         }
 
+
 fun repeatBinaryConversion(string: String): IntArray {
     TODO()
+}
+
+tailrec fun gcd(num1: Int, num2: Int): Int =
+    if (num2 != 0) gcd(num2, num1 % num2) else num1
+
+fun findGreatestLeastCommon(number1: Int, number2: Int): IntArray {
+    val gcd = gcd(num1 = number1, num2 = number2)
+    return intArrayOf(gcd, number1 * number2 / gcd)
 }
 
 fun addMatrix(
@@ -108,6 +117,7 @@ fun addMatrix(
         }
     }
 }
+
 
 
 
