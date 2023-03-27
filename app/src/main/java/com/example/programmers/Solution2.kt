@@ -1,6 +1,5 @@
 package com.example.programmers
 
-import java.io.File.separator
 import java.util.*
 
 fun hidePhoneNumber(phoneNumber: String): String = phoneNumber
@@ -74,14 +73,6 @@ fun findMaxMinValues(string: String): String =
         .let { "${it.min()} ${it.max()}" }
 
 
-fun addMatrix(
-    firstIntArray: Array<IntArray>,
-    secondIntArray: Array<IntArray>,
-): Array<IntArray> {
-
-    return emptyArray()
-}
-
 fun createRectangularStar(args: Array<String>) {
     val (a, b) = readLine()!!.split(' ').map(String::toInt)
     repeat(b) {
@@ -91,6 +82,7 @@ fun createRectangularStar(args: Array<String>) {
         println()
     }
 }
+
 
 fun createJadenCase(string: String): String =
     string
@@ -102,6 +94,20 @@ fun createJadenCase(string: String): String =
             }
         }
 
+fun repeatBinaryConversion(string: String): IntArray {
+    TODO()
+}
+
+fun addMatrix(
+    firstIntArray: Array<IntArray>,
+    secondIntArray: Array<IntArray>,
+): Array<IntArray> {
+    return Array(firstIntArray.size) { index1 ->
+        IntArray(firstIntArray[0].size) { index2 ->
+            firstIntArray[index1][index2] + secondIntArray[index1][index2]
+        }
+    }
+}
 
 
 
