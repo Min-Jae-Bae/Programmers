@@ -183,6 +183,15 @@ class ProgrammersTest2 {
         assertThat(findGreatestLeastCommon(number1 = number1, number2 = number2), `is`(result))
     }
 
+    @ParameterizedTest
+    @CsvSource(
+        "45, 7",
+        "125, 229"
+    )
+    fun `Ternary flip test`(number: Int, flipResult: Int) {
+        assertThat(flipTernary(number = number), `is`(flipResult))
+    }
+
     companion object {
         @JvmStatic
         fun getYinYangCase() = listOf(
