@@ -118,6 +118,12 @@ fun addMatrix(
     }
 }
 
+fun flipTernary(number: Int): Int =
+    (number)
+        .toString(3)
+        .reversed()
+        .toInt(3)
+
 
 
 
